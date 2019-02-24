@@ -120,7 +120,12 @@ class _HomePageWidget extends State<HomePageBeta> {
         appBar: AppBar(title: Text(widget.title),),
         body: Center(
           child: ListView.builder(itemBuilder: (context, index) {
-            if (index == items.length) {
+            if (index == 0) {
+              return new GestureDetector(
+                child: Text("Jump to Second Page"),
+                onTap: () {jumpToSecondPage(context);},
+              );
+            } else if (index == items.length) {
               return _buildProgressIndicator();
             } else {
               return ListTile(title: new Text("Number $index"),);
